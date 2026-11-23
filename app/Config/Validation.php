@@ -42,4 +42,10 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    public $registrationRules = [
+    'username'     => 'required|alpha_numeric_punct|min_length[3]|max_length[30]',
+    'email'        => 'required|valid_email',
+    'password'     => 'required|strong_password',
+    'pass_confirm' => 'required|matches[password]',
+];
 }

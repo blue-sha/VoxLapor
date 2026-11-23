@@ -14,14 +14,14 @@
 # ENVIRONMENT
 #--------------------------------------------------------------------
 
-# CI_ENVIRONMENT = production
+CI_ENVIRONMENT = development
 
 #--------------------------------------------------------------------
 # APP
 #--------------------------------------------------------------------
 
-# app.baseURL = ''
-# If you have trouble with `.`, you could also use `_`.
+app.baseURL = 'http://localhost:8080/'
+# If you have trouble with ., you could also use _.
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false
 # app.CSPEnabled = false
@@ -30,14 +30,25 @@
 # DATABASE
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
-# database.default.database = ci4
-# database.default.username = root
-# database.default.password = root
-# database.default.DBDriver = MySQLi
-# database.default.DBPrefix =
-# database.default.port = 3306
+ database.default.hostname = localhost
+ database.default.database = voxlapor
+ database.default.username = root
+ database.default.password = 
+ database.default.DBDriver = MySQLi
+ database.default.DBPrefix =
+ database.default.port = 3306
+ RECAPTCHA_SITEKEY = 6LetwicuAAAAAG0FfDfpaFgNGdLvXBJrlq4l17jH
+ RECAPTCHA_SECRET = 6LetwicuAAAAACIzZMrFfpHQFpgxm7mhlfLRrnV-
 
+email.fromEmail  = 'revan.josep.n@gmail.com'
+email.fromName   = 'Voxlapor'
+email.protocol   = 'smtp'
+email.SMTPHost   = 'smtp.gmail.com'
+email.SMTPUser   = 'revan.josep.n@gmail.com'
+email.SMTPPass   = 'qwkigetwmpshcfla'
+email.SMTPPort   = 587
+email.SMTPCrypto = 'tls'
+email.mailType   = 'html'
 # If you use MySQLi as tests, first update the values of Config\Database::$tests.
 # database.tests.hostname = localhost
 # database.tests.database = ci4_test
