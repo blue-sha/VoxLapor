@@ -6,9 +6,9 @@ use Myth\Auth\Config\Auth as BaseAuth;
 
 class Auth extends BaseAuth
 {
-    public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
+    public $requireActivation = 'false';
     public $activeResetter    = false;
-    public $landingRoute = '/admin';
+    public $landingRoute = 'arah';
     public $validFields    = ['username'];
     public $personalFields = ['nama', 'email'];
 

@@ -38,6 +38,7 @@ class Filters extends BaseFilters
         'role'       => \Myth\Auth\Filters\RoleFilter::class,
         'permission' => \Myth\Auth\Filters\PermissionFilter::class,
         'captcha' => \App\Filters\CaptchaFilter::class,
+        'petugas'       => \App\Filters\PetugasFilter::class,
     ];
 
     /**
@@ -111,6 +112,6 @@ class Filters extends BaseFilters
      * @var array<string, array<string, list<string>>>
      */
     public array $filters = [
-    'captcha' => ['before' => ['login']],
-];
+        'captcha' => ['before' => ['login']],
+    ];
 }

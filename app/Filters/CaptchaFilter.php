@@ -33,7 +33,6 @@ class CaptchaFilter implements FilterInterface
         ]);
 
         $result = json_decode($response->getBody(), true);
-$result = json_decode($response->getBody(), true);  
         if (! ($result['success'] ?? false)) {
             return $this->gagal();
         }
@@ -46,6 +45,6 @@ $result = json_decode($response->getBody(), true);
     private function gagal()
     {
         return redirect()->back()->withInput()
-            ->with('error', 'Centang "I\'m not a robot" dulu.');
+            ->with('error', 'Verifikasi Terlebih dahulu.');
     }
 }
