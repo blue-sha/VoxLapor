@@ -49,4 +49,5 @@ class Petugas extends BaseController
         ]);
         return redirect()->to('/petugas/keluhan')->with('pesan', 'Laporan diperbarui.');
     }
+
 }

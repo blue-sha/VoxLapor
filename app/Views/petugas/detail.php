@@ -23,18 +23,4 @@
 <?php endif ?>
 
 <hr>
-
-<form action="<?= base_url('petugas/proses/' . $laporan['id']) ?>" method="post">
-    <?= csrf_field() ?>
-    <label>Status:</label>
-    <select name="status">
-        <?php foreach (['baru', 'diproses', 'selesai'] as $s): ?>
-            <option value="<?= $s ?>" <?= $laporan['status'] === $s ? 'selected' : '' ?>><?= ucfirst($s) ?></option>
-        <?php endforeach ?>
-    </select><br>
-
-    <label>Tanggapan:</label><br>
-    <textarea name="tanggapan" rows="4"><?= esc($laporan['tanggapan'] ?? '') ?></textarea><br>
-
-    <button type="submit">Simpan</button>
-</form>
+<a href="<?= base_url('balasan/'); ?>"><button>Balas</button></a>

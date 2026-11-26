@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var String $nama
+ * @var String $username
  */
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 
 <body>
 
-    <h1>Selamat datang Baginda <?= esc($nama) ?></h1>
+    <h1>Selamat datang Baginda <?= esc($username) ?></h1>
 
 
 

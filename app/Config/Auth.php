@@ -8,7 +8,7 @@ class Auth extends BaseAuth
 {
     public $requireActivation = 'false';
     public $activeResetter    = false;
-    public $landingRoute = 'arah';
+    public $landingRoute = 'Dashboard';
     public $validFields    = ['username'];
     public $personalFields = ['nama', 'email'];
 
@@ -20,4 +20,6 @@ class Auth extends BaseAuth
     'emailForgot'     => 'Myth\Auth\Views\emails\forgot',
     'emailActivation' => 'Myth\Auth\Views\emails\activation',
     ];
+
+    public $userModel = \App\Models\UserModel::class;
 }

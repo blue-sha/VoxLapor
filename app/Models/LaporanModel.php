@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 
 class LaporanModel extends Model
 {
-    protected $table         = 'laporankeluh';
+    protected $table         = 'laporan';
     protected $primaryKey    = 'id';
     protected $useTimestamps = true;
     protected $allowedFields = [

@@ -114,12 +114,12 @@
                 <legend>Dampak Dari Keluhan</legend>
                 <label for="dampak">Dampak : </label>
                 <select name="dampak" id="dampak" class="selectDenganLainnya">
-                    <option value="MeGePer">Mengganggu Kegiatan Perkuliahan</option>
-                    <option value="MenGePrak">Mengganggu Kegiatan Praktikum</option>
-                    <option value="MePeA">Mengganggu Pelayanan Administrasi</option>
-                    <option value="MeKePeRu">Mengganggu Kenyamanan Pengguna Ruangan</option>
-                    <option value="BeMeKe">Berpotensi Menimbulan Kecelakaan/Cedera</option>
-                    <option value="BeMePeLa">Berpotensi Merusak Peralatan Lainya</option>
+                    <option value="Mengganggu Kegiatan Perkuliahan">Mengganggu Kegiatan Perkuliahan</option>
+                    <option value="Mengganggu Kegiatan Praktikum">Mengganggu Kegiatan Praktikum</option>
+                    <option value="Mengganggu Pelayanan Administrasi">Mengganggu Pelayanan Administrasi</option>
+                    <option value="Mengganggu Kenyamanan Pengguna Ruangan">Mengganggu Kenyamanan Pengguna Ruangan</option>
+                    <option value="Berpotensi Menimbulkan Kecelakaan/Cedera">Berpotensi Menimbulan Kecelakaan/Cedera</option>
+                    <option value="Berpotensi Merusak Peralatan Lainnya">Berpotensi Merusak Peralatan Lainya</option>
                     <option value="lainnya">Lainnya</option>
                 </select>
                 <div class="lainnyaContainer" hidden>

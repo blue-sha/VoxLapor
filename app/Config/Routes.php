@@ -14,5 +14,6 @@ $routes->group('petugas', ['filter' => 'role:petugas,admin'], function ($routes)
     $routes->get('/', 'Petugas::dashboard');
     $routes->get('keluhan', 'Petugas::keluhan');
     $routes->get('detail/(:num)', 'Petugas::detail/$1');
+    $routes->get('balasan/(:num)', 'Petugas::balasan/$1');
     $routes->post('proses/(:num)', 'Petugas::proses/$1');
 });
