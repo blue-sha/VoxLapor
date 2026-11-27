@@ -18,6 +18,7 @@ class Dashboard extends BaseController
         return view('Users/dashboard', [
             'nama'     => user()->nama,
             'username' => user()->username, // NIP/NIDN
+            'hideNavbar' => true,
         ]);
     }
 
