@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\LaporanModel;
+
 class Dashboard extends BaseController
 {
     public function index()
@@ -16,8 +18,11 @@ class Dashboard extends BaseController
         }
 
         return view('Users/dashboard', [
-            'nama'     => user()->nama,
-            'username' => user()->username, // NIP/NIDN
+            'nama'    => user()->nama ?: user()->username,
+            'laporan' => (new LaporanModel())
+                            ->where('username', user()->username)
+                            ->orderBy('created_at', 'DESC')
+                            ->findAll(5),
         ]);
     }
 }

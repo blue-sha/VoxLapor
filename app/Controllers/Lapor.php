@@ -12,6 +12,8 @@ class Lapor extends BaseController
 
     public function simpan()
     {
+        helper('auth');                                      // BARU
+
         $jabatan = $this->request->getPost('jabatan');
         if ($jabatan === 'lainnya') $jabatan = $this->request->getPost('jabatanLainnya');
 
@@ -30,6 +32,7 @@ class Lapor extends BaseController
         }
 
         (new LaporanModel())->insert([
+            'username'          => user()->username,         // BARU: pemilik laporan
             'nama_pelapor'      => $this->request->getPost('namaPelapor'),
             'no_identitas'      => $this->request->getPost('noIdentitas'),
             'jabatan'           => $jabatan,
@@ -46,6 +49,6 @@ class Lapor extends BaseController
             'foto'              => $namaFoto,
         ]);
 
-        return redirect()->to('/lapor')->with('pesan', 'Laporan berhasil dikirim.');
+        return redirect()->to('/riwayat')->with('pesan', 'Laporan berhasil dikirim.');   // UBAH: ke riwayat
     }
 }

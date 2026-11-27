@@ -20,7 +20,9 @@
     <a href="?status=aktif">Aktif</a> |
     <a href="?status=baru">Baru</a> |
     <a href="?status=diproses">Diproses</a> |
+    <a href="?status=tindak_lanjut">Tindak Lanjut</a> |
     <a href="?status=selesai">Selesai</a> |
+    <a href="?status=ditolak">Ditolak</a> |
     <a href="?status=semua">Semua</a>
 </p>
 
@@ -39,7 +41,7 @@
         <td><?= esc($l['gedung']) ?> / <?= esc($l['ruangan']) ?></td>
         <td><?= esc($l['objek']) ?></td>
         <td><?= esc($l['prioritas']) ?></td>
-        <td><?= esc($l['status']) ?></td>
+        <td><?= esc(ucwords(str_replace('_', ' ', $l['status']))) ?></td>
         <td><a href="<?= base_url('petugas/detail/' . $l['id']) ?>">Detail</a></td>
     </tr>
     <?php endforeach ?>
