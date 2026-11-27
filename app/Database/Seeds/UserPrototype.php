@@ -5,6 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 use Myth\Auth\Models\GroupModel;
 use App\Models\UserModel;
+use Myth\Auth\Password;
 
 class UserPrototype extends Seeder
 {
@@ -24,7 +25,7 @@ class UserPrototype extends Seeder
                 'data' => [
                     'email' => 'user.demo@kampus.ac.id',
                     'username' => 'user_demo',
-                    'password' => 'Password123!',
+                    'password_hash' => Password::hash('Password123!'),
                     'active' => 1,
                 ],
                 'group' => 'user',
@@ -34,7 +35,7 @@ class UserPrototype extends Seeder
                     'email' => 'petugas.demo@kampus.ac.id',
                     'username' => 'petugas_demo',
                     'full_name' => 'Petugas Kampus S.T.',
-                    'password' => 'Password123!',
+                    'password_hash' => Password::hash('Password123!'),
                     'active' => 1,
                 ],
                 'group' => 'petugas',
@@ -43,7 +44,7 @@ class UserPrototype extends Seeder
                 'data' => [
                     'email' => 'admin.demo@kampus.ac.id',
                     'username' => 'admin_demo',
-                    'password' => 'Password123!',
+                    'password_hash' => Password::hash('Password123!'),
                     'active' => 1,
                 ],
                 'group' => 'admin',

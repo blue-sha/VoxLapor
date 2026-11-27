@@ -36,7 +36,7 @@ class LaporanExample extends Seeder
                 'prioritas'         => 'tinggi',
                 'foto'              => null,
                 'status'            => 'menunggu',
-                'id_petugas'        => null,
+                'petugas_id'        => null,
                 'created_at'        => $now,
                 'updated_at'        => $now,
             ],
@@ -57,7 +57,7 @@ class LaporanExample extends Seeder
                 'prioritas'         => 'sedang',
                 'foto'              => 'uploads/laporan/sample_ac.jpg',
                 'status'            => 'diproses',
-                'id_petugas'        => $petugasId,
+                'petugas_id'        => $petugasId,
                 'created_at'        => $now,
                 'updated_at'        => $now,
             ],
@@ -78,10 +78,21 @@ class LaporanExample extends Seeder
                 'prioritas'         => 'tinggi',
                 'foto'              => 'uploads/laporan/sample_stopkontak.jpg',
                 'status'            => 'selesai',
-                'id_petugas'        => $petugasId,
+                'petugas_id'        => $petugasId,
                 'created_at'        => $now,
                 'updated_at'        => $now,
             ]
         ];
+
+        foreach($laporanData as $row){
+            $exists = $db->table('laporan')
+                ->where('nomor_laporan', $row['nomor_laporan'])
+                ->get()
+                ->getRow();
+
+            if(! $exists){
+                $db->table('laporan')->insert($row);
+            }
+        }
     }
 }

@@ -23,9 +23,9 @@ class TanggapanLaporan extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addKey('laporan_id');
-        $this->forge->addKey('petugas_id');
         $this->forge->addForeignKey('laporan_id', 'laporan', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('petugas_id', 'users', 'id', 'CASCADE', 'SET NULL');
+        $this->forge->addKey('petugas_id');
+        $this->forge->addForeignKey('petugas_id', 'users', 'id', 'CASCADE', 'RESTRICT');
         $this->forge->createTable('tanggapan_laporan');
     }
 
