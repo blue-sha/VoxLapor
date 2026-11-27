@@ -20,4 +20,9 @@ class Dashboard extends BaseController
             'username' => user()->username, // NIP/NIDN
         ]);
     }
+
+    public function Home()
+    {
+        return view('Home', ['title' => 'VoxLapor']);
+    }
 }

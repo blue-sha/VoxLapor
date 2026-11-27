@@ -11,6 +11,7 @@ class Petugas extends BaseController
         return view('petugas/dashboard', [
             'total' => $model->countAllResults(),
             'baru'  => $model->where('status', 'baru')->countAllResults(),
+            'hideFooter' => true,
         ]);
     }
 
