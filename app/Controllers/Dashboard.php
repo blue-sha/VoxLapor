@@ -8,6 +8,9 @@ class Dashboard extends BaseController
     {
         helper('auth');
 
+        if (! logged_in()) {
+            return redirect()->to('/login');
+        }
         if (in_groups('admin')) {
             return redirect()->to('/admin');
         }
@@ -16,8 +19,8 @@ class Dashboard extends BaseController
         }
 
         return view('Users/dashboard', [
-            'nama'     => user()->nama,
-            'username' => user()->username, // NIP/NIDN
-        ]);
+    'full_name'    => user()->full_name ?: user()->username,
+    'laporan' => (new \App\Models\LaporanModel())->orderBy('created_at', 'DESC')->findAll(5),
+]);
     }
 }

@@ -12,6 +12,7 @@ class Home extends BaseController
     public function lapor(): string
     {
         return view('Petugas/balasan');
+
     }
 
     public function petugas(): string
@@ -19,16 +20,4 @@ class Home extends BaseController
         return view('petugas/petugas');
     }
 
-    public function arah()
-    {
-        helper('auth');
-
-        if (in_groups('admin')) {
-            return redirect()->to('/admin');
-        }
-        if (in_groups('petugas')) {
-            return redirect()->to('/petugas');
-        }
-        return redirect()->to('/');   // user biasa
-    }
 }
