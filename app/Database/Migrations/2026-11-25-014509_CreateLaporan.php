@@ -46,6 +46,10 @@ class CreateLaporan extends Migration
                 'constraint' => 100,
                 'null'       => false,
             ],
+            'tanggal_lapor' => [
+                'type'      => 'DATE',
+                'null'      => false,
+            ],
             'gedung' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
@@ -72,7 +76,7 @@ class CreateLaporan extends Migration
             ],
             'tanggal_ditemukan' => [
                 'type' => 'DATE',
-                'null' => true,
+                'null' => false,
             ],
             'dampak' => [
                 'type'       => 'VARCHAR',

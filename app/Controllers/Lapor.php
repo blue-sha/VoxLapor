@@ -12,6 +12,9 @@ class Lapor extends BaseController
 
     public function simpan()
     {
+        $laporanModel = new LaporanModel();
+        $userId = user_id();
+        $noLapor = $laporanModel->generateNomorLaporan();
         $jabatan = $this->request->getPost('jabatan');
         if ($jabatan === 'lainnya') $jabatan = $this->request->getPost('jabatanLainnya');
 
@@ -29,9 +32,10 @@ class Lapor extends BaseController
             $foto->move(FCPATH . 'uploads/laporan', $namaFoto);
         }
 
-        (new LaporanModel())->insert([
+        ($laporanModel)->insert([
             'nama_pelapor'      => $this->request->getPost('namaPelapor'),
             'no_identitas'      => $this->request->getPost('noIdentitas'),
+            'nomor_laporan'     => $noLapor,
             'jabatan'           => $jabatan,
             'unit_program'      => $this->request->getPost('unitProgram'),
             'kontak'            => $this->request->getPost('telEmail'),
@@ -44,6 +48,7 @@ class Lapor extends BaseController
             'dampak'            => $dampak,
             'prioritas'         => $this->request->getPost('prioritas'),
             'foto'              => $namaFoto,
+            'user_id'           => $userId,
         ]);
 
         return redirect()->to('/lapor')->with('pesan', 'Laporan berhasil dikirim.');

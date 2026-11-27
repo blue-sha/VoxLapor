@@ -46,4 +46,57 @@ class LaporanModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function generateNomorLaporan(){
+        $prefix = "LAP";
+        $tahunBulan = date('Ym');
+        $kepalaNomor = $prefix . "-" . $tahunBulan;
+
+        $terakhir = $this->select('nomor_laporan')
+            ->like('nomor_laporan', $kepalaNomor, 'after')
+            ->orderBy('nomor_laporan', 'DESC')
+            ->first();
+
+        $nomorBerikutnya = 1;
+
+        if ($terakhir) {
+            $digitTerakhir = (int) substr($terakhir['nomor_laporan'], -4);
+            $nomorBerikutnya = $digitTerakhir + 1;
+        }
+
+        if($nomorBerikutnya > 9999){
+            throw new \RuntimeException(('Kuota nomor laporan bulan ini sudah mencapai batas maksimal (9999)'));
+        }
+
+        $urutan = str_pad((string) $nomorBerikutnya, 4, 0, STR_PAD_LEFT);
+
+        return $kepalaNomor . "-" . $urutan;
+    }
+
+    public function getLaporanWithUsers($id = false){
+        $laporan = $this->select('laporan.*, 
+        pel.username AS pelapor_username,
+        pel.email AS pelapor_email,
+        pet.username AS petugas_username,
+        pet.email AS petugas_email,
+        pet.full_name AS petugas_full_name');
+
+        $laporan->join('users as pel', 'pel.id = laporan.user_id', 'left');
+
+        $laporan->join('users as pet', 'pet.id = laporan.petugas_id', 'left');
+
+        if ($id === false){
+            return $this->findAll();
+        }
+
+        return $this->where("laporan.id", $id)->first();
+    }
+
+    public function getLaporanByUser($id){
+        $laporan = $this->select('laporan.*')
+            ->where('laporan.id', $id)
+            ->findAll();
+        
+        return $laporan;
+    }
 }
