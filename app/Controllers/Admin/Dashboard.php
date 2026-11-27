@@ -13,10 +13,10 @@ class Dashboard extends BaseController
         $total = count($laporan);
         $rekapStatus = [];
 
-        foreach($laporan as $row){
+        foreach ($laporan as $row) {
             $status = $row['status'] ?? 'tidak_diketahui';
 
-            if(! isset($rekapStatus[$status])) {
+            if (! isset($rekapStatus[$status])) {
                 $rekapStatus[$status] = 0;
             }
 
@@ -30,6 +30,13 @@ class Dashboard extends BaseController
             'totalMenunggu' => $rekapStatus['menunggu'] ?? 0,
             'totalSelesai' => $rekapStatus['selesai'] ?? 0,
             'totalTindakLanjut' => $rekapStatus['tindak lanjut'] ?? 0,
-            'totalDitolak' => $rekapStatus['ditolak'] ?? 0]);
+            'totalDitolak' => $rekapStatus['ditolak'] ?? 0
+        ]);
+    }
+
+    public function detail($id)
+    {
+        $laporan = (new LaporanModel())->getLaporanWithUsers($id);
+        return view('admin/detailadmin', ['laporan' => $laporan]);
     }
 }

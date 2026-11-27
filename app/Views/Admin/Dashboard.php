@@ -44,7 +44,7 @@
                     <td><?= esc($satuLapor['nama_pelapor']); ?></td>
                     <td><?= esc($satuLapor['objek']); ?></td>
                     <td><?= esc($satuLapor['status']); ?></td>
-                    <td><a href="<?= base_url('/detail'); ?>">Detail</a></td>
+                    <td><a href="<?= base_url('/detailAdmin/' . $satuLapor['id']); ?>">Detail</a></td>
                 </tr>
             <?php endforeach; ?>
         </table>
